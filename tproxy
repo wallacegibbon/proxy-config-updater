@@ -1,0 +1,24 @@
+##  Usage: source this file or paste this file to ~/.zshrc, ~/.bashrc
+proxyon() {
+	export all_proxy=socks://127.0.0.1:7891
+	export http_proxy=http://127.0.0.1:7890
+	export https_proxy=http://127.0.0.1:7890
+	export no_proxy=127.0.0.1,localhost
+	export ALL_PROXY=socks://127.0.0.1:7891
+	export HTTP_PROXY=http://127.0.0.1:7890
+	export HTTPS_PROXY=http://127.0.0.1:7890
+	export NO_PROXY=127.0.0.1,localhost
+	printf "\033[32m[√] Proxy env set up!\033[0m\n"
+}
+
+proxyoff(){
+	unset all_proxy
+	unset http_proxy
+	unset https_proxy
+	unset no_proxy
+	unset ALL_PROXY
+	unset HTTP_PROXY
+	unset HTTPS_PROXY
+	unset NO_PROXY
+	printf "\033[31m[√] Proxy env cleaned up.\033[0m\n"
+}
