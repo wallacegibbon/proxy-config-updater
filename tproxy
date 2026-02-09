@@ -1,4 +1,4 @@
-##  Usage: source this file or paste this file to ~/.zshrc, ~/.bashrc
+##  Usage: Copy this file to shell init (like ~/.zshrc, ~/.bashrc) or sourct this file.
 proxyon() {
 	export all_proxy=socks://127.0.0.1:7891
 	export http_proxy=http://127.0.0.1:7890
@@ -11,7 +11,7 @@ proxyon() {
 	printf "\033[32m[√] Proxy env set up!\033[0m\n"
 }
 
-proxyoff(){
+proxyoff() {
 	unset all_proxy
 	unset http_proxy
 	unset https_proxy
