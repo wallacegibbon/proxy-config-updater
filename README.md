@@ -15,13 +15,13 @@ A command line tool in Go that parses Clash subscription URLs (which contain bas
 ## Installation
 
 ```bash
-go build
+go install github.com/wallacegibbon/proxy-config-updater@latest
 ```
 
 ## Usage
 
 ```bash
-./proxy-config-updater <url-file> [options]
+proxy-config-updater <url-file> [options]
 ```
 
 ### Options
@@ -38,17 +38,17 @@ echo "https://example.com/subscription" > url.txt
 
 Parse subscription and output to stdout:
 ```bash
-./proxy-config-updater url.txt
+proxy-config-updater url.txt
 ```
 
 Save to file:
 ```bash
-./proxy-config-updater url.txt -output config.yaml
+proxy-config-updater url.txt -output config.yaml
 ```
 
 Output raw (not pretty printed):
 ```bash
-./proxy-config-updater url.txt -pretty=false
+proxy-config-updater url.txt -pretty=false
 ```
 
 ## Default Configuration
