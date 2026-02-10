@@ -98,7 +98,7 @@ func main() {
 	}
 
 	if urlFile == "" {
-		fmt.Fprintln(os.Stderr, "Usage: base64-subscription-config <url-file> [options]")
+		fmt.Fprintln(os.Stderr, "Usage: proxy-config-updater <url-file> [options]")
 		fmt.Fprintln(os.Stderr, "  -output string   Output file path (default: stdout)")
 		fmt.Fprintln(os.Stderr, "  -pretty          Pretty print output (default true)")
 		os.Exit(1)

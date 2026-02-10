@@ -1,4 +1,4 @@
-module github.com/wallace/base64-subscription-config
+module github.com/wallacegibbon/proxy-config-updater
 
 go 1.25.6
 

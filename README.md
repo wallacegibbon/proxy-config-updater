@@ -1,4 +1,4 @@
-# Clash Subscription Parser
+# Proxy Config Updater
 
 A command line tool in Go that parses Clash subscription URLs (which contain base64 encoded content) and generates Clash configurations.
 
@@ -21,7 +21,7 @@ go build
 ## Usage
 
 ```bash
-./base64-subscription-config <url-file> [options]
+./proxy-config-updater <url-file> [options]
 ```
 
 ### Options
@@ -38,17 +38,17 @@ echo "https://example.com/subscription" > url.txt
 
 Parse subscription and output to stdout:
 ```bash
-./base64-subscription-config url.txt
+./proxy-config-updater url.txt
 ```
 
 Save to file:
 ```bash
-./base64-subscription-config url.txt -output config.yaml
+./proxy-config-updater url.txt -output config.yaml
 ```
 
 Output raw (not pretty printed):
 ```bash
-./base64-subscription-config url.txt -pretty=false
+./proxy-config-updater url.txt -pretty=false
 ```
 
 ## Default Configuration

@@ -13,11 +13,11 @@ This is a Go CLI application that parses Clash subscription configurations. It r
 go build
 ```
 
-This compiles the application to an executable named `base64-subscription-config` (the module name).
+This compiles the application to an executable named `proxy-config-updater` (the module name).
 
 ### Run
 ```bash
-./base64-subscription-config <url-file> [options]
+./proxy-config-updater <url-file> [options]
 ```
 
 The `<url-file>` argument is a file containing the subscription URL (one URL per file).
@@ -32,13 +32,13 @@ Examples:
 echo "https://example.com/subscription" > url.txt
 
 # Parse and output to stdout
-./base64-subscription-config url.txt
+./proxy-config-updater url.txt
 
 # Save to file
-./base64-subscription-config url.txt -output config.yaml
+./proxy-config-updater url.txt -output config.yaml
 
 # Raw output (not pretty printed)
-./base64-subscription-config url.txt -pretty=false
+./proxy-config-updater url.txt -pretty=false
 ```
 
 ### Go Module Operations
@@ -126,13 +126,13 @@ Run tests with: `go test -v`
 
 7. **Inline Extra Fields**: The `Proxy` struct uses `yaml:",inline,omitempty"` to capture any additional fields not explicitly defined, providing flexibility for proxy variations.
 
-8. **Binary Already Present**: The directory may contain a compiled binary (`base64-subscription-config`). Rebuild after making code changes.
+8. **Binary Already Present**: The directory may contain a compiled binary (`proxy-config-updater`). Rebuild after making code changes.
 
 9. **YAML Unmarshaling**: The code silently ignores unknown YAML fields during unmarshaling (standard behavior of yaml.v3).
 
 10. **Default Configuration Merging**: When pretty printing (`-pretty=true`), the tool merges subscription configuration with embedded default values (port: 7890, socks-port: 7891, redir-port: 7892, allow-lan: true, mode: rule, log-level: info). Subscription fields override defaults. Default rule providers are also included (direct, reject, gfw, cncidr) unless the subscription provides its own rule-providers map.
 
-11. **Flexible Flag Order**: Flags can appear anywhere in the command line (before or after the URL file argument). Example: `./base64-subscription-config url.txt -output config.yaml` or `./base64-subscription-config -output config.yaml url.txt`
+11. **Flexible Flag Order**: Flags can appear anywhere in the command line (before or after the URL file argument). Example: `./proxy-config-updater url.txt -output config.yaml` or `./proxy-config-updater -output config.yaml url.txt`
 
 12. **Rule Providers Map Replacement**: If a subscription includes a `rule-providers` map, it completely replaces the default rule providers map (the entire map is replaced, not merged). This is because maps are treated as single values during configuration merging.
 
@@ -145,7 +145,7 @@ Run tests with: `go test -v`
 ├── go.mod                       # Go module definition
 ├── go.sum                       # Dependency checksums
 ├── README.md                    # User documentation
-└── base64-subscription-config    # Compiled binary (after build)
+└── proxy-config-updater    # Compiled binary (after build)
 ```
 
 No subdirectories, Makefiles, build scripts, or CI/CD configuration.
